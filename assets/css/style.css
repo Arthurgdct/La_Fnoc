@@ -1,0 +1,7 @@
+#all_Category {
+    display: flex;
+    flex-direction: row;
+}
+.category {
+    display: flex;
+}
