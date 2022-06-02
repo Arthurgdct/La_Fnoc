@@ -5,3 +5,82 @@
 .category {
     display: flex;
 }
+#navMain {
+    background-color: black;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#navTitle {
+    height: 60%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+
+}
+
+h1 {
+    color: white;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#navContainer {
+    height: 40%;
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: inherit;
+}
+
+#navList{
+    height: 100%;
+    width: 80%;
+    color: white;
+    display: table-cell;
+
+}
+
+#navUl {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding-left: initial;
+    text-align: center;
+
+}
+#panier {
+    width: 20%;
+    display: flex;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+.liNavList {
+    border: 1px solid black;
+    width: 20%;
+    color: white;
+}
+
+.liNavHref {
+    color: white;
+}
+.liNavHref:hover {
+    color: red;
+}
+
+div {
+    display: block;
+}
+
