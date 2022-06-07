@@ -136,3 +136,115 @@ function displayAllCategoryOfProducts(categoryArray)
 
     //console.log(listOfMovies)
     categoryArray.forEach(product => result.innerHTML += makeCategoryLabel(product))}
+
+
+
+
+
+    //Début code Aurelien et Arthur
+
+
+fetch('Fnocs.json')
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+
+
+    for (let i = 0; i < data.results.length; i++)
+    
+        if(document.getElementById(i) = data.results[i].id){
+            newBlocForProduct()
+         }
+
+
+})
+//recupere le storage pour verifier si le client na pas deja un panier en cours.
+getCartFromStorage(); 
+
+//si l'utilisateurs clic sur la page, vérifie le clic et démare un "Si". 
+
+document.addEventListener("click", event => {
+if (event.target.matches(".add_Btn")) {
+
+    newBlocForProduct();
+
+} else {
+    console.log("non");
+}
+})
+
+
+
+
+
+/////////////////////////////// ^ Code mis en application ^ ///////////////////////////////////////
+
+
+//////////////////////////////    v Liste de Function v    ///////////////////////////////////////
+
+
+//ajoute un produit au tableau cartfnoc
+function productToCart() {
+productInList = new Object();
+productInList.price = 
+productInList.name = 
+product.push(productInList);
+}
+//envoie des donnees dans le local storage
+function FromStorageToCart() {
+localStorage.setItem('cartefnoc', JSON.stringify(cartfnoc));
+}
+//Recupere les donnees dans le local storage
+function getCartFromStorage() {
+cart = JSON.parse(localStorage.getItem("cartfnoc")) || [];
+}
+//Cree un bloc vide pour accueillir des donnees
+function newBlocForProduct(i) {
+let cartRecap = document.getElementById("panier_test");
+let div = document.createElement("div");
+let p = document.createElement("p");
+
+div.appendChild(p);
+cartRecap.appendChild(div);
+
+}
+
+
+
+// Partie Arthur Solo
+
+fetch('Fnocs.json')
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    data = data.results;
+    console.log(data);
+    localStorage.setItem('produits', JSON.stringify(data));
+})
+
+
+fetch('Fnocs.json')
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    data = data.results;
+    produits = JSON.parse(localStorage.getItem("produits"));
+    console.log(produits);
+    let result = 0
+
+    for (let i = 0; i < produits[1].length; i++) {
+        if (produits.lenght == 0) {
+            console.log("Rien");
+        } else if (produits.lenght == 1) {
+            console.log(produits.price);
+        } else {
+            result = produits[i][i].price_Btn + result;
+            resulteuro = result + "€"
+            console.log(resulteuro);
+        }
+    }
+})
+
