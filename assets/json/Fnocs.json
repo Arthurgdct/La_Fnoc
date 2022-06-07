@@ -1,0 +1,78 @@
+{
+    "results":  [
+                    [
+                        
+                        {
+                            "category": "Game",
+                            "product_Name": "Fortnite",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/fortnite.jpg"
+                        },
+                        {
+                            "category": "Game",
+                            "product_Name": "PS4",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/ps4.jpg"
+                        }
+                    ],
+                    [
+                        {
+                            "category": "DVD",
+                            "product_Name": "Apprendre Javascript",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/infoJava.jpg"
+                        },
+                        {
+                            "category": "DVD",
+                            "product_Name": "Informatique pour tous",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/.infoForAll.jpg"
+                        }
+                    ],
+                    [
+                        {
+                            "category": "Show",
+                            "product_Name": "Spectacle de danse",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/dance_show.jpg"
+                        },
+                        {
+                            "category": "Show",
+                            "product_Name": "théatre",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/theatre.jpg"
+                        }
+                    ],
+                    [
+                        {
+                            "category": "Book",
+                            "product_Name": "Windows 10",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/windows10.jpg"
+                        },
+                        {
+                            "category": "Book",
+                            "product_Name": "Windows 10 Pro",
+                            "product_Description": "Bla bla bla bla",
+                            "price_Btn": "29€",
+                            "add_Btn":"Ajouter au panier",
+                            "Src_Img":"./img/windows10Pro.jpg"
+                        }
+                    ]
+
+                ]
+}

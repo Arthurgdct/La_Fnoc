@@ -1,3 +1,10 @@
+#all_Category {
+    display: flex;
+    flex-direction: row;
+}
+.category {
+    display: flex;
+}
 #navMain {
     background-color: black;
     height: 80px;
