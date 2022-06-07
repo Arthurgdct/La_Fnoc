@@ -43,31 +43,48 @@ navMain.addEventListener('click', event =>{
     }
 });
 
+fetch("./assets/json/Fnocs.json")
+.then((Fnocs)=>Fnocs.json())
+.then((data) => {
+    data = data.results;
+    console.log(data);
 
 
-
-/**
-    * Fonction de création d'une structure d'éléments 
-*/
-/**
-    function makeCategoryLabel(product)
-    {
-        return `
-            <article class="category_Label">
-                <img class="Src_Img" src="${product.Src_Img}" alt="photo du produit">
-                <h4 class="Product_Name">${escapeHtml(product.Product_Name)}</h2>
-                <p>${escapeHtml(product.Description)}<p>
-                <span>${product.Price}<span>
-            </article>
-        `
-    }
+    for (let i = 0; i < data.length; i++) {
+        
+        let main = document.createElement('main');
+        let category= document.createElement('section');
+        let article = document.createElement('article');
+        let Src_Img = document.createElement('img');
+        let division = document.createElement('div');
+        let product_Name = document.createElement('h3');
+        let product_Description = document.createElement('p');
+        let price_Btn = document.createElement('button');
+        let add_Btn = document.createElement('button');
 
 
-/** Fonction de boucle:
+        main.appendChild(section);
+        category.appendChild(article);
+        article.appendChild(Src_Img);
+        article.appendChild(division);
+        division.appendChild(product_Name);
+        division.appendChild(product_Description);
+        division.appendChild(price_Btn);
+        division.appendChild(add_Btn);
+        
+        Src_Img.src = data[i].Src_Img;
+        category.createTextNode = "(data[i].category)";
+        product_Description.createTextNode = "(data[i].product_Description)";
+        product_Name.createTextNode = "(data[i].product_Name)";
+        category.createTextNode = "(data[i].category)";
+    }})
+
+
+/**Fonction de boucle:
  * pour chaque produit, par exemple le livre "X" puis le livre "Y", va appeler la fonction "makeCategoryLabel"
  * qui permet de créer des éléments et les positionner dans les éléments de classe "product-result"
 */
-/**
+
 function displayAllCategoryOfProducts(listOfCategoryOfProducts)
 {
     result = documentgetElementById('productResult');
@@ -78,24 +95,11 @@ function displayAllCategoryOfProducts(listOfCategoryOfProducts)
     listOfCategoryOfProducts.forEach(product => result.innerHTML += makeCategoryLabel(product))
 
 }
-*/
+
 function displayAllCategoryOfProducts(categoryArray)
 {
     result = document.getElementById('productResult');
     result.innerHTML = "";
 
     //console.log(listOfMovies)
-    categoryArray.forEach(product => result.innerHTML += makeCategoryLabel(product))
-
-}
-
-function makeCategoryLabel(product)
-    {
-        return `
-            <article class="category_Label">
-                <p>${product.categoryArray}<p>;
-            
-            </article>
-        `
-    }
-    console.log(JSON.parse(JSON.stringifyproduct.categoryArray))
+    categoryArray.forEach(product => result.innerHTML += makeCategoryLabel(product))}
