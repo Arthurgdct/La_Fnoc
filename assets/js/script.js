@@ -1,9 +1,56 @@
+let navMain = document.getElementById('navMain');
+let category = document.getElementById('category')
+let book = document.getElementsByClassName('book');
+let game = document.getElementsByClassName('game');
+let dvd = document.getElementsByClassName('DVD');
+let show = document.getElementsByClassName('show');
+let categoryArray = ['a', 123, 'try'];
+let product;
 
 fetch('./assets/json/Fnocs.json')
 .then(function (response) {
     return response.json();
 })
 .then(function (data) {
+
+
+//Ecoute du clic sur la barre Nav
+navMain.addEventListener('click', event =>{
+    /** Si le click est fait sur la barre de navigation sur le bouton Livre
+    *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+    *  ouvre la catégorie livre avec tous ses articles dans la section category
+     */
+    if(event.target.matches('.book')){
+        category.append(book)
+    }
+    /** Si le click est fait sur la barre de navigation sur le bouton Jeux
+    *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+    *  ouvre la catégorie Jeux avec tous ses articles dans la section category
+     */
+
+    if (event.target.matches('.game')){
+        category.append(game)
+    }
+    /** Si le click est fait sur la barre de navigation sur le bouton DVD
+     *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+     *  ouvre la catégorie DVD avec tous ses articles dans la section category
+     */
+    if(event.target.matches('.DVD')){
+        category.append(DVD)
+    }
+    /** Si le click est fait sur la barre de navigation sur le bouton Spectacles
+     *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+     *  ouvre la catégorie Spectacles avec tous ses articles dans la section category
+     */
+
+    if(event.target.matches('.Show')){
+        category.append(show)
+    }
+});
+
+fetch("./assets/json/Fnocs.json")
+.then((Fnocs)=>Fnocs.json())
+.then((data) => {
     data = data.results;
     console.log(data);
 
@@ -34,6 +81,11 @@ fetch('./assets/json/Fnocs.json')
         product_Name.classList.add("product_Name");
         description.appendChild(product_Name);
         product_Name.appendChild(createTextNode_Name);
+        category.createTextNode = "(data[i].category)";
+        product_Description.createTextNode = "(data[i].product_Description)";
+        product_Name.createTextNode = "(data[i].product_Name)";
+        category.createTextNode = "(data[i].category)";
+    }})
 
         let product_Description = document.createElement('p');
         let createTextNode_Description = document.createTextNode(data[i].product_Description);
@@ -59,28 +111,28 @@ fetch('./assets/json/Fnocs.json')
         add_Btn.appendChild(identification);
     
     }
+)
 
-})
-        
+/**Fonction de boucle:
+ * pour chaque produit, par exemple le livre "X" puis le livre "Y", va appeler la fonction "makeCategoryLabel"
+ * qui permet de créer des éléments et les positionner dans les éléments de classe "product-result"
+*/
 
-        
-        
-        
+function displayAllCategoryOfProducts(listOfCategoryOfProducts)
+{
+    result = documentgetElementById('productResult');
+    // nom de classe à determiner!
+    result.innerHTML = "";
 
-        
+    //console.log(listOfMovies)
+    listOfCategoryOfProducts.forEach(product => result.innerHTML += makeCategoryLabel(product))
 
-        
+}
 
-        
-        
-        
+function displayAllCategoryOfProducts(categoryArray)
+{
+    result = document.getElementById('productResult');
+    result.innerHTML = "";
 
-       
-
-        
-
-
-
-
-
-
+    //console.log(listOfMovies)
+    categoryArray.forEach(product => result.innerHTML += makeCategoryLabel(product))}
