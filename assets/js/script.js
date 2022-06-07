@@ -1,4 +1,47 @@
+let navMain = document.getElementById('navMain');
+let category = document.getElementById('category')
+let book = document.getElementsByClassName('book');
+let game = document.getElementsByClassName('game');
+let dvd = document.getElementsByClassName('DVD');
+let show = document.getElementsByClassName('show');
+let categoryArray = ['a', 123, 'try'];
+let product;
 
+
+
+//Ecoute du clic sur la barre Nav
+navMain.addEventListener('click', event =>{
+    /** Si le click est fait sur la barre de navigation sur le bouton Livre
+    *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+    *  ouvre la catégorie livre avec tous ses articles dans la section category
+     */
+    if(event.target.matches('.book')){
+        category.append(book)
+    }
+    /** Si le click est fait sur la barre de navigation sur le bouton Jeux
+    *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+    *  ouvre la catégorie Jeux avec tous ses articles dans la section category
+     */
+
+    if (event.target.matches('.game')){
+        category.append(game)
+    }
+    /** Si le click est fait sur la barre de navigation sur le bouton DVD
+     *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+     *  ouvre la catégorie DVD avec tous ses articles dans la section category
+     */
+    if(event.target.matches('.DVD')){
+        category.append(DVD)
+    }
+    /** Si le click est fait sur la barre de navigation sur le bouton Spectacles
+     *  ajoute tous éléments contenus dans la class Spectacles dans la section category
+     *  ouvre la catégorie Spectacles avec tous ses articles dans la section category
+     */
+
+    if(event.target.matches('.Show')){
+        category.append(show)
+    }
+});
 
 fetch("./assets/json/Fnocs.json")
 .then((Fnocs)=>Fnocs.json())
@@ -34,34 +77,54 @@ fetch("./assets/json/Fnocs.json")
         product_Description.createTextNode = "(data[i].product_Description)";
         product_Name.createTextNode = "(data[i].product_Name)";
         category.createTextNode = "(data[i].category)";
-      
-
-       
+    }})
 
 
+/**Fonction de boucle:
+ * pour chaque produit, par exemple le livre "X" puis le livre "Y", va appeler la fonction "makeCategoryLabel"
+ * qui permet de créer des éléments et les positionner dans les éléments de classe "product-result"
+*/
+
+function displayAllCategoryOfProducts(listOfCategoryOfProducts)
+{
+    result = documentgetElementById('productResult');
+    // nom de classe à determiner!
+    result.innerHTML = "";
+
+    //console.log(listOfMovies)
+    listOfCategoryOfProducts.forEach(product => result.innerHTML += makeCategoryLabel(product))
+
+}
+
+function displayAllCategoryOfProducts(categoryArray)
+{
+    result = document.getElementById('productResult');
+    result.innerHTML = "";
+
+    //console.log(listOfMovies)
+    categoryArray.forEach(product => result.innerHTML += makeCategoryLabel(product))}
 
 
-    }
 
-})
 
-//Début code Aurelien et Arthur
+
+    //Début code Aurelien et Arthur
 
 
 fetch('Fnocs.json')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
 
 
-        for (let i = 0; i < data.results.length; i++)
-        
-            if(document.getElementById(i) = data.results[i].id){
-                newBlocForProduct()
-             }
-
+    for (let i = 0; i < data.results.length; i++)
     
+        if(document.getElementById(i) = data.results[i].id){
+            newBlocForProduct()
+         }
+
+
 })
 //recupere le storage pour verifier si le client na pas deja un panier en cours.
 getCartFromStorage(); 
@@ -69,13 +132,13 @@ getCartFromStorage();
 //si l'utilisateurs clic sur la page, vérifie le clic et démare un "Si". 
 
 document.addEventListener("click", event => {
-    if (event.target.matches(".add_Btn")) {
-    
-        newBlocForProduct();
+if (event.target.matches(".add_Btn")) {
 
-    } else {
-        console.log("non");
-    }
+    newBlocForProduct();
+
+} else {
+    console.log("non");
+}
 })
 
 
@@ -85,60 +148,32 @@ document.addEventListener("click", event => {
 /////////////////////////////// ^ Code mis en application ^ ///////////////////////////////////////
 
 
-////////////////////////////// v Morceau de code pour m aider v ///////////////////////////////////
-
-
-/*    //////     Pour ajouter des classes a des bloc cree auto /////
-            p.classList.add("para");
-            divindiv.classList.add("info");
-            div.classList.add("film"); */
-
-
-
-
-/*      ///////*Pour Attribuer du texte a des "paragraphe" encore inexistant ////////////
-
-for (let i = 0; i < data.length; i++) {
-
-        let titles = data[i].product_Name;
-        let imgs = data[i].Src_Img;
-        let prix = data[i].price_Btn;
-
-        let contentdesc = document.createTextNode(titles);
-        let contentitle = document.createTextNode(prix);
-        let contentimg = document.createElement("img");
-
-*/
-
-////////////////////////////// ^ Morceau de code pour m aider ^ ///////////////////////////////////
-
-
 //////////////////////////////    v Liste de Function v    ///////////////////////////////////////
 
 
 //ajoute un produit au tableau cartfnoc
 function productToCart() {
-    productInList = new Object();
-    productInList.price = 
-    productInList.name = 
-    product.push(productInList);
+productInList = new Object();
+productInList.price = 
+productInList.name = 
+product.push(productInList);
 }
 //envoie des donnees dans le local storage
 function FromStorageToCart() {
-    localStorage.setItem('cartefnoc', JSON.stringify(cartfnoc));
+localStorage.setItem('cartefnoc', JSON.stringify(cartfnoc));
 }
 //Recupere les donnees dans le local storage
 function getCartFromStorage() {
-    cart = JSON.parse(localStorage.getItem("cartfnoc")) || [];
+cart = JSON.parse(localStorage.getItem("cartfnoc")) || [];
 }
 //Cree un bloc vide pour accueillir des donnees
 function newBlocForProduct(i) {
-    let cartRecap = document.getElementById("panier_test");
-    let div = document.createElement("div");
-    let p = document.createElement("p");
+let cartRecap = document.getElementById("panier_test");
+let div = document.createElement("div");
+let p = document.createElement("p");
 
-    div.appendChild(p);
-    cartRecap.appendChild(div);
+div.appendChild(p);
+cartRecap.appendChild(div);
 
 }
 
@@ -147,41 +182,36 @@ function newBlocForProduct(i) {
 // Partie Arthur Solo
 
 fetch('Fnocs.json')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        data = data.results;
-        console.log(data);
-        localStorage.setItem('produits', JSON.stringify(data));
-    })
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    data = data.results;
+    console.log(data);
+    localStorage.setItem('produits', JSON.stringify(data));
+})
 
 
 fetch('Fnocs.json')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        data = data.results;
-        produits = JSON.parse(localStorage.getItem("produits"));
-        console.log(produits);
-        let result = 0
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    data = data.results;
+    produits = JSON.parse(localStorage.getItem("produits"));
+    console.log(produits);
+    let result = 0
 
-        for (let i = 0; i < produits[1].length; i++) {
-            if (produits.lenght == 0) {
-                console.log("Rien");
-            } else if (produits.lenght == 1) {
-                console.log(produits.price);
-            } else {
-                result = produits[i][i].price_Btn + result;
-                resulteuro = result + "€"
-                console.log(resulteuro);
-            }
+    for (let i = 0; i < produits[1].length; i++) {
+        if (produits.lenght == 0) {
+            console.log("Rien");
+        } else if (produits.lenght == 1) {
+            console.log(produits.price);
+        } else {
+            result = produits[i][i].price_Btn + result;
+            resulteuro = result + "€"
+            console.log(resulteuro);
         }
-    })
-
-
-
-
-
+    }
+})
 
